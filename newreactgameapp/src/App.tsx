@@ -2,6 +2,9 @@ import { ColorModeContext, Grid, GridItem, Show, Switch } from "@chakra-ui/react
 import NavBar from "./components/NavBar"
 import ColorModeSwitch from "./components/ColorModeSwitch"
 import GameGrid from "./components/GameGrid"
+import GenreList from "./components/GenreList"
+import { useState } from "react"
+import { Genre } from "./hooks/useGenres"
 
 
 
@@ -10,6 +13,8 @@ import GameGrid from "./components/GameGrid"
 
 
 const App = () => {
+    const [selectedGenre, setselectedGenre] = useState<Genre |null>(null)
+
   return (
     <>
   
@@ -29,9 +34,9 @@ const App = () => {
 
 
         <Show above="lg">
-        <GridItem area="aside"> 
+        <GridItem area="aside" padding={5}> 
           {""}
-          Aside
+          <GenreList onSelectedGenre={(genre) => setselectedGenre(genre)}/>
           </GridItem>
           
         </Show>
@@ -39,6 +44,7 @@ const App = () => {
 
         <GridItem area="main">
           <GameGrid/>
+
         </GridItem>
 
 

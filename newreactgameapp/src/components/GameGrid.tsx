@@ -5,20 +5,35 @@
 import { SimpleGrid, Text } from "@chakra-ui/react"
 import useGames from "../hooks/useGames"
 import GameCard from "./GameCard"
+import GameCardSkeleton from "./GameCardSkeleton";
+import GameCardContainer from "./GameCardContainer";
 
 
 
 const GameGrid = () => {
 
- const{games, error} = useGames()
+ const{data, error, isLoading} = useGames()
 //where the helper function to add, delete or update data
+
+const skeleton = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
 
 
   return (
     <>
     {/* display our data ul li grid table usually map it with unique key */}
-    <SimpleGrid>
-        {games.map(game => 
+    <SimpleGrid columns={{sm:1,md:2,lg:3,xl:5}} spacing={10} padding={'20px'}> 
+
+    {isLoading &&
+          skeleton.map((skeleton) => (
+            <GameCardContainer>
+              <GameCardSkeleton key={skeleton} />
+            </GameCardContainer>
+          ))}
+
+        {/* for every 1 spacing is 4px */}
+        {data.map((game) => 
         <GameCard game={game} key={game.id}></GameCard>)}
     </SimpleGrid>
     {error && <Text color={'red'}>{error}</Text>}
