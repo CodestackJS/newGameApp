@@ -3,16 +3,21 @@
 // import { useEffect, useState } from "react"
 // import apiClient from "../services/apiClient"
 import { SimpleGrid, Text } from "@chakra-ui/react"
-import useGames from "../hooks/useGames"
+import useGames, { Platform } from "../hooks/useGames"
 import GameCard from "./GameCard"
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
+import { Genre } from "../hooks/useGenres";
 
 
+interface Props{
+  selectedGenre: Genre | null;
+  selectedPlatform: Platform | null
+}
 
-const GameGrid = () => {
+const GameGrid = ({selectedGenre,selectedPlatform}:Props) => {
 
- const{data, error, isLoading} = useGames()
+ const{data, error, isLoading} = useGames(selectedGenre,selectedPlatform);
 //where the helper function to add, delete or update data
 
 const skeleton = [
