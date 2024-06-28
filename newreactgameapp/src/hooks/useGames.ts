@@ -1,6 +1,7 @@
 // import { useEffect, useState } from "react";
 // import apiClient from "../services/apiClient";
 // import { CanceledError } from "axios";
+import { GameQuery } from "../App";
 import useData from "./useData";
 import { Genre } from "./useGenres";
 
@@ -32,7 +33,7 @@ export interface FetchGameResponse{
 
 
 
-        const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => useData<Game>('/games', {params:{genres:selectedGenre?.id, parent_platforms:selectedPlatform?.id}}, [selectedGenre?.id,selectedPlatform?.id])
+        const useGames = (gameQuery:GameQuery) => useData<Game>('/games', {params:{genres:gameQuery.genre?.id, parent_platforms:gameQuery.platform?.id}}, [gameQuery])
 
     //     // we need our useStates to help us render update our UI with our games and others
     //     const [games, setGames] = useState<Game[]>([]);
