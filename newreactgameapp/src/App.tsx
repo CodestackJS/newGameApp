@@ -1,6 +1,6 @@
-import { Box, ColorModeContext, Grid, GridItem, HStack, Show, Switch } from "@chakra-ui/react"
+import { Box, Grid, GridItem, HStack, Show, } from "@chakra-ui/react"
 import NavBar from "./components/NavBar"
-import ColorModeSwitch from "./components/ColorModeSwitch"
+// import ColorModeSwitch from "./components/ColorModeSwitch"
 import GameGrid from "./components/GameGrid"
 import GenreList from "./components/GenreList"
 import { useState } from "react"

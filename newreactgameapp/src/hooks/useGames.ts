@@ -3,7 +3,6 @@
 // import { CanceledError } from "axios";
 import { GameQuery } from "../App";
 import useData from "./useData";
-import { Genre } from "./useGenres";
 
 
 export interface Platform {
