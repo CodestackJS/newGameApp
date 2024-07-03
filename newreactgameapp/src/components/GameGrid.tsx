@@ -30,7 +30,7 @@ const skeleton = [
   return (
     <>
     {/* display our data ul li grid table usually map it with unique key */}
-    <SimpleGrid columns={{sm:1,md:2,lg:3,xl:5}} spacing={10} padding={'20px'}> 
+    <SimpleGrid columns={{sm:1,md:2,lg:3,xl:4}} spacing={10} padding={'20px'}> 
 
     {isLoading &&
           skeleton.map((skeleton) => (
